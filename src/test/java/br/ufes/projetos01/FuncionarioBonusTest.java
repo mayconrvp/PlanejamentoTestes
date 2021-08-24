@@ -197,7 +197,7 @@ public class FuncionarioBonusTest {
     public void CT012() throws Exception {
         //Arrange
         String nome = "João";
-        String cargo = "Surpevisor Financeiro";
+        String cargo = "Supervisor Financeiro";
         double salarioBase = 2000.00;
         double salarioEsperado = 2180.00;
         Funcionario funcionario = new Funcionario(nome, salarioBase, cargo);
@@ -215,11 +215,11 @@ public class FuncionarioBonusTest {
     public void CT013() throws Exception {
         //Arrange
         String nome = "João";
-        String cargo = "Surpevisor Operacional";
+        String cargo = "Supervisor Operacional";
         double salarioBase = 2000.00;
         double salarioEsperado = 2120.00;
         Funcionario funcionario = new Funcionario(nome, salarioBase, cargo);
-        funcionario.setFaltas(4);
+        funcionario.setFaltas(5);
 
         //Act
         ProcessadoraBonus pb = new ProcessadoraBonus();
@@ -233,11 +233,11 @@ public class FuncionarioBonusTest {
     public void CT014() throws Exception {
         //Arrange
         String nome = "João";
-        String cargo = "Surpevisor Adminstrativo";
+        String cargo = "Supervisor Adminstrativo";
         double salarioBase = 2000.00;
         double salarioEsperado = 2100.00;
         Funcionario funcionario = new Funcionario(nome, salarioBase, cargo);
-        funcionario.setFaltas(9);
+        funcionario.setFaltas(10);
 
         //Act
         ProcessadoraBonus pb = new ProcessadoraBonus();
@@ -255,7 +255,7 @@ public class FuncionarioBonusTest {
         double salarioBase = 2000.00;
         double salarioEsperado = 2080.00;
         Funcionario funcionario = new Funcionario(nome, salarioBase, cargo);
-        funcionario.setFaltas(10);
+        funcionario.setFaltas(11);
         funcionario.setDistanciaMoradia(0);
 
         //Act
@@ -306,7 +306,7 @@ public class FuncionarioBonusTest {
     public void CT018() throws Exception {
         //expect
         thrown.expect(Exception.class);
-        thrown.expectMessage("\n#4 O número de faltas deve ser >= 0");
+        thrown.expectMessage("#4 O número de faltas deve ser >= 0");
         
         //Arrange
         String nome = "João";
@@ -323,7 +323,7 @@ public class FuncionarioBonusTest {
     public void CT019() throws Exception {
         //expect
         thrown.expect(Exception.class);
-        thrown.expectMessage("\n#5 A distancia deve ser >= 0");
+        thrown.expectMessage("#5 A distancia deve ser >= 0");
         
         //Arrange
         String nome = "João";
@@ -340,7 +340,7 @@ public class FuncionarioBonusTest {
     public void CT020() throws Exception {
         //expect
         thrown.expect(Exception.class);
-        thrown.expectMessage("\n#1 Informe um nome válido");
+        thrown.expectMessage("#1 Informe um nome válido");
 
         //Arrange
         String nome = "Fulano";
@@ -357,7 +357,7 @@ public class FuncionarioBonusTest {
     public void CT021() throws Exception {
         //expect
         thrown.expect(Exception.class);
-        thrown.expectMessage("\n#1 Informe um nome válido");
+        thrown.expectMessage("#1 Informe um nome válido");
 
         //Arrange
         String nome = "Fulano";
@@ -374,7 +374,7 @@ public class FuncionarioBonusTest {
     public void CT022() throws Exception {
         //expect
         thrown.expect(Exception.class);
-        thrown.expectMessage("\n#3 O salário base deve ser >= R$ 998,00");
+        thrown.expectMessage("#3 O salário base deve ser >= R$ 998,00");
 
         //Arrange
         String nome = "Fulano";
@@ -391,7 +391,7 @@ public class FuncionarioBonusTest {
     public void CT023() throws Exception {
         //expect
         thrown.expect(Exception.class);
-        thrown.expectMessage("\n#2 Informe um cargo válido");
+        thrown.expectMessage("#2 Informe um cargo válido");
 
         //Arrange
         String nome = "Fulano";
@@ -408,7 +408,7 @@ public class FuncionarioBonusTest {
     public void CT024() throws Exception {
         //expect
         thrown.expect(Exception.class);
-        thrown.expectMessage("\n#2 Informe um cargo válido");
+        thrown.expectMessage("#2 Informe um cargo válido");
 
         //Arrange
         String nome = "Fulano";
@@ -438,7 +438,7 @@ public class FuncionarioBonusTest {
         pb.processar(funcionario);
 
         //Assert
-        assertEquals(salarioEsperado, funcionario.getSalarioBase(), 0.001);
+        assertEquals(salarioEsperado, funcionario.getSalario(), 0.001);
 
     }
 

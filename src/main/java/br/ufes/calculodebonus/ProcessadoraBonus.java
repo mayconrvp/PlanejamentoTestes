@@ -16,6 +16,7 @@ public class ProcessadoraBonus {
     }
 
     public void processar(Funcionario funcionario) {
+        funcionario.limparBonus();
 
         for (IMetodoCalculaBonus metodoDeCalculoBonus : metodosDeCalculoBonus) {
             metodoDeCalculoBonus.calcular(funcionario);

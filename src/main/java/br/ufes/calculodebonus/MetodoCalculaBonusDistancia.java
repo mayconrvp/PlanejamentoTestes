@@ -7,7 +7,9 @@ class MetodoCalculaBonusDistancia implements IMetodoCalculaBonus {
 
     @Override
     public void calcular(Funcionario funcionario) {
-        int distanciaMoradia = funcionario.getDistanciaMoradia();
+        Integer distanciaMoradia = funcionario.getDistanciaMoradia();
+        
+        if(distanciaMoradia == null) return;
 
         String tipoBonus = "Distancia: " + distanciaMoradia + " Km";
 
